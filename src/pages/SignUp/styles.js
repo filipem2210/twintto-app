@@ -14,7 +14,12 @@ export const TopMenuWrapper = styled.View`
   flex-direction: row;
 `;
 
-export const BackButton = styled.TouchableOpacity``;
+export const BackButton = styled.TouchableHighlight.attrs({
+  underlayColor: 'rgba(29, 161, 242, 0.1)',
+})`
+  padding: 5px;
+  border-radius: 50px;
+`;
 
 export const Logo = styled.Image`
   flex: 1;
