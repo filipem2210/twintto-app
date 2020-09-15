@@ -46,12 +46,15 @@ export const ErrorWrapper = styled.Text`
   color: #c0392b;
 `;
 
+export const SignUpButtonWrapper = styled.View`
+  width: 100%;
+  align-items: flex-end;
+`;
+
 export const SignUpButton = styled.TouchableOpacity`
   background-color: #33a1f2;
   border-radius: 50px;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
+  padding: 6px 16px;
 `;
 
 export const SignUpButtonText = styled.Text`

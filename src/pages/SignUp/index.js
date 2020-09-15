@@ -14,6 +14,7 @@ import {
   FormWrapper,
   Input,
   ErrorWrapper,
+  SignUpButtonWrapper,
   SignUpButton,
   SignUpButtonText,
 } from './styles';
@@ -126,7 +127,7 @@ export default function SignUpScreen({navigation: {goBack}}) {
                 autoCompleteType="off"
                 maxLength={50}
                 ref={passwordRef}
-                returnKeyType="send"
+                returnKeyType="done"
                 onFocus={() => {
                   setPasswordInputFocused(true);
                 }}
@@ -144,9 +145,11 @@ export default function SignUpScreen({navigation: {goBack}}) {
         </Formik>
       </FormWrapper>
 
-      <SignUpButton>
-        <SignUpButtonText>Inscrever-se</SignUpButtonText>
-      </SignUpButton>
+      <SignUpButtonWrapper>
+        <SignUpButton>
+          <SignUpButtonText>Inscrever-se</SignUpButtonText>
+        </SignUpButton>
+      </SignUpButtonWrapper>
     </Container>
   );
 }
