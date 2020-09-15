@@ -27,7 +27,7 @@ export default function LandingScreen({navigation}) {
       </Wrapper>
       <SignInWrapper>
         <SignInText>Já tem uma conta? </SignInText>
-        <SignInButton>
+        <SignInButton onPress={() => navigation.navigate('SignIn')}>
           <SignInButtonText>Entrar</SignInButtonText>
         </SignInButton>
       </SignInWrapper>
