@@ -15,13 +15,13 @@ import {
   SignInButtonText,
 } from './styles';
 
-export default function LandingScreen() {
+export default function LandingScreen({navigation}) {
   return (
     <Container>
       <Logo source={logo} resizeMode="contain" />
       <Wrapper>
         <Title>Veja o que está acontencendo no mundo neste momento.</Title>
-        <SignUpButton>
+        <SignUpButton onPress={() => navigation.navigate('SignUp')}>
           <SignUpButtonText>Criar Conta</SignUpButtonText>
         </SignUpButton>
       </Wrapper>
