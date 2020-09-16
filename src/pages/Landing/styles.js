@@ -6,6 +6,7 @@ export const Container = styled.SafeAreaView`
   align-items: center;
   justify-content: center;
   padding: 15px 30px 30px 30px;
+  background-color: #fff;
 `;
 
 export const Logo = styled.Image``;
