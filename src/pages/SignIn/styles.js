@@ -35,6 +35,7 @@ export const SignUpButton = styled.TouchableOpacity.attrs({
 
 export const SignUpButtonText = styled.Text`
   color: #33a1f2;
+  font-size: 16px;
   font-weight: bold;
 `;
 
