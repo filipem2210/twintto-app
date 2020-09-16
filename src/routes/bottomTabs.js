@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Fontisto';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import FeedScreen from '../pages/Feed';
-import SearchScreen from '../pages/Search';
+import FeedScreen from '../screens/Feed';
+import SearchScreen from '../screens/Search';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,8 +20,12 @@ export default function HomeTabs() {
         name="Feed"
         component={FeedScreen}
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Icon name="home" size={size} color={color} />
+          tabBarIcon: ({focused, color, size}) => (
+            <Icon
+              color={color}
+              size={size}
+              name={focused ? 'md-home-sharp' : 'md-home-outline'}
+            />
           ),
         }}
       />
@@ -29,8 +33,12 @@ export default function HomeTabs() {
         name="Search"
         component={SearchScreen}
         options={{
-          tabBarIcon: ({color}) => (
-            <Icon name="search" size={30} color={color} />
+          tabBarIcon: ({focused, color, size}) => (
+            <Icon
+              color={color}
+              size={size}
+              name={focused ? 'md-search-sharp' : 'md-search-outline'}
+            />
           ),
         }}
       />
@@ -38,15 +46,27 @@ export default function HomeTabs() {
         name="Notifications"
         component={SearchScreen}
         options={{
-          tabBarIcon: ({color}) => <Icon name="bell" size={30} color={color} />,
+          tabBarIcon: ({focused, color, size}) => (
+            <Icon
+              color={color}
+              size={size}
+              name={
+                focused ? 'md-notifications-sharp' : 'md-notifications-outline'
+              }
+            />
+          ),
         }}
       />
       <Tab.Screen
         name="Messages"
         component={SearchScreen}
         options={{
-          tabBarIcon: ({color}) => (
-            <Icon name="email" size={30} color={color} />
+          tabBarIcon: ({focused, color, size}) => (
+            <Icon
+              color={color}
+              size={size}
+              name={focused ? 'md-mail-sharp' : 'md-mail-outline'}
+            />
           ),
         }}
       />
