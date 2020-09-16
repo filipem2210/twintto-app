@@ -1,5 +1,8 @@
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
+import {RectButton} from 'react-native-gesture-handler';
+
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export const Container = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.OS === 'ios' ? 'padding' : 'height',
@@ -8,6 +11,7 @@ export const Container = styled.KeyboardAvoidingView.attrs({
   align-items: center;
   justify-content: center;
   padding: 15px 30px;
+  background-color: #fff;
 `;
 
 export const TopMenuWrapper = styled.View`
@@ -38,8 +42,21 @@ export const FormWrapper = styled.View`
   justify-content: center;
 `;
 
+export const InputWrapper = styled.View`
+  position: relative;
+`;
+
 export const Input = styled.TextInput`
   font-size: 19px;
+`;
+
+export const PasswordVisibilityButton = styled.TouchableWithoutFeedback``;
+
+export const PasswordVisibilityButtonIcon = styled(Icon)`
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  opacity: 0.4;
 `;
 
 export const ErrorWrapper = styled.Text`
@@ -51,7 +68,7 @@ export const SignUpButtonWrapper = styled.View`
   align-items: flex-end;
 `;
 
-export const SignUpButton = styled.TouchableOpacity`
+export const SignUpButton = styled(RectButton)`
   background-color: #33a1f2;
   border-radius: 50px;
   padding: 6px 16px;

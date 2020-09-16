@@ -12,7 +12,10 @@ import {
   Logo,
   Title,
   FormWrapper,
+  InputWrapper,
   Input,
+  PasswordVisibilityButton,
+  PasswordVisibilityButtonIcon,
   ErrorWrapper,
   SignUpButtonWrapper,
   SignUpButton,
@@ -33,6 +36,7 @@ export default function SignUpScreen({navigation: {goBack}}) {
   const [nameInputFocused, setNameInputFocused] = useState(false);
   const [emailInputFocused, setEmailInputFocused] = useState(false);
   const [passwordInputFocused, setPasswordInputFocused] = useState(false);
+  const [passwordHidden, setPasswordHidden] = useState(true);
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -115,28 +119,40 @@ export default function SignUpScreen({navigation: {goBack}}) {
                 <ErrorMessage name="email" />
               </ErrorWrapper>
 
-              <Input
-                secureTextEntry
-                placeholder="Senha"
-                value={values.password}
-                onChangeText={handleChange('password')}
-                onBlur={() => {
-                  handleBlur('password');
-                  setPasswordInputFocused(false);
-                }}
-                autoCompleteType="off"
-                maxLength={50}
-                ref={passwordRef}
-                returnKeyType="done"
-                onFocus={() => {
-                  setPasswordInputFocused(true);
-                }}
-                underlineColorAndroid={
-                  passwordInputFocused ? '#33a1f2' : '#8899a6'
-                }
-                selectionColor="#33a1f2"
-                onSubmitEditing={handleSubmit}
-              />
+              <InputWrapper>
+                <Input
+                  secureTextEntry={passwordHidden}
+                  placeholder="Senha"
+                  value={values.password}
+                  onChangeText={handleChange('password')}
+                  onBlur={() => {
+                    handleBlur('password');
+                    setPasswordInputFocused(false);
+                  }}
+                  autoCorrect={false}
+                  autoCompleteType="off"
+                  maxLength={50}
+                  ref={passwordRef}
+                  returnKeyType="done"
+                  onFocus={() => {
+                    setPasswordInputFocused(true);
+                  }}
+                  underlineColorAndroid={
+                    passwordInputFocused ? '#33a1f2' : '#8899a6'
+                  }
+                  selectionColor="#33a1f2"
+                  onSubmitEditing={handleSubmit}
+                />
+                <PasswordVisibilityButton
+                  onPress={() => setPasswordHidden((prevValue) => !prevValue)}>
+                  <PasswordVisibilityButtonIcon
+                    name="eye"
+                    size={20}
+                    color={passwordHidden ? '#8899a6' : '#33a1f2'}
+                    style={!passwordHidden && {opacity: 1}}
+                  />
+                </PasswordVisibilityButton>
+              </InputWrapper>
               <ErrorWrapper>
                 <ErrorMessage name="password" />
               </ErrorWrapper>
