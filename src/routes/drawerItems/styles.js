@@ -23,9 +23,7 @@ export const Name = styled.Text`
   font-weight: bold;
 `;
 
-export const UserName = styled.Text`
-  color: #2f3336;
-`;
+export const UserName = styled.Text``;
 
 export const FollowInfo = styled.View`
   flex-direction: row;
@@ -36,33 +34,22 @@ export const FollowingNumber = styled.Text`
   font-weight: bold;
 `;
 
-export const FollowingText = styled.Text`
-  color: #2f3336;
-`;
+export const FollowingText = styled.Text``;
 
 export const FollowersNumber = styled.Text`
   font-weight: bold;
 `;
 
-export const FollowersText = styled.Text`
-  color: #2f3336;
-`;
+export const FollowersText = styled.Text``;
 
 export const DrawerItemsWrapper = styled.View`
-  border-top-color: #e6ecf0;
   border-top-width: 1px;
-  border-bottom-color: #e6ecf0;
   border-bottom-width: 1px;
 `;
 
-export const DrawerNav = styled(DrawerItem).attrs({
-  labelStyle: {
-    color: '#000',
-  },
-})``;
+export const DrawerNav = styled(DrawerItem)``;
 
 export const BottomOptions = styled.View`
-  border-top-color: #e6ecf0;
   border-top-width: 1px;
   flex-direction: row;
   justify-content: space-between;
