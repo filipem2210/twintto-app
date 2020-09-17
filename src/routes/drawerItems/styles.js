@@ -10,13 +10,15 @@ export const UserInfo = styled.View`
   padding: 15px;
 `;
 
-export const Avatar = styled.Image`
+export const Avatar = styled.Image.attrs({
+  resizeMode: 'contain',
+})`
   width: 50px;
   height: 50px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
 `;
 
 export const Name = styled.Text`
