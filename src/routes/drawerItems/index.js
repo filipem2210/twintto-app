@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
+import {useTheme} from '@react-navigation/native';
 import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+import {ThemeContext} from '../../contexts/ThemeContext';
 
 import {
   Container,
@@ -20,6 +23,10 @@ import {
 } from './styles';
 
 export default function DrawerItems(props) {
+  const {colors} = useTheme();
+  const {toggleTheme} = useContext(ThemeContext);
+  const iconSize = 25;
+
   return (
     <Container>
       <DrawerContentScrollView {...props}>
@@ -30,18 +37,27 @@ export default function DrawerItems(props) {
                 'https://pbs.twimg.com/profile_images/1260607790323830791/NGrNpCkO_bigger.jpg',
             }}
           />
-          <Name>old wolf</Name>
-          <UserName>@filipem2210</UserName>
+          <Name style={{color: colors.text}}>old wolf</Name>
+          <UserName style={{color: colors.text}}>@filipem2210</UserName>
           <FollowInfo>
-            <FollowingNumber>78 </FollowingNumber>
-            <FollowingText>Seguindo </FollowingText>
-            <FollowersNumber>22 </FollowersNumber>
-            <FollowersText>Seguidores</FollowersText>
+            <FollowingNumber style={{color: colors.text}}>78 </FollowingNumber>
+            <FollowingText style={{color: colors.text}}>
+              Seguindo{' '}
+            </FollowingText>
+            <FollowersNumber style={{color: colors.text}}>22 </FollowersNumber>
+            <FollowersText style={{color: colors.text}}>
+              Seguidores
+            </FollowersText>
           </FollowInfo>
         </UserInfo>
-        <DrawerItemsWrapper>
+        <DrawerItemsWrapper
+          style={{
+            borderTopColor: colors.border,
+            borderBottomColor: colors.border,
+          }}>
           <DrawerNav
             label="Perfil"
+            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -52,6 +68,7 @@ export default function DrawerItems(props) {
           />
           <DrawerNav
             label="Listas"
+            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -62,6 +79,7 @@ export default function DrawerItems(props) {
           />
           <DrawerNav
             label="Tópicos"
+            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -72,6 +90,7 @@ export default function DrawerItems(props) {
           />
           <DrawerNav
             label="Itens Salvos"
+            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -82,6 +101,7 @@ export default function DrawerItems(props) {
           />
           <DrawerNav
             label="Moments"
+            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -92,13 +112,26 @@ export default function DrawerItems(props) {
           />
         </DrawerItemsWrapper>
         <View>
-          <DrawerNav label="Configurações e privacidade" />
-          <DrawerNav label="Central de Ajuda" />
+          <DrawerNav
+            label="Configurações e privacidade"
+            labelStyle={{color: colors.text}}
+          />
+          <DrawerNav
+            label="Central de Ajuda"
+            labelStyle={{color: colors.text}}
+          />
         </View>
       </DrawerContentScrollView>
-      <BottomOptions>
-        <Icon color="#33a1f2" size={25} name="bulb-outline" />
-        <Icon color="#33a1f2" size={25} name="qr-code-outline" />
+      <BottomOptions style={{borderTopColor: colors.border}}>
+        <Icon
+          color={colors.twitter}
+          size={iconSize}
+          name="bulb-outline"
+          onPress={() => {
+            toggleTheme();
+          }}
+        />
+        <Icon color={colors.twitter} size={iconSize} name="qr-code-outline" />
       </BottomOptions>
     </Container>
   );
