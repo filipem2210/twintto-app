@@ -80,10 +80,9 @@ export default function Tweet({
               <IoIcon
                 name="chatbubble-outline"
                 size={iconSize}
-                color={comments > 0 ? colors.twitter : colors.gray}
+                color={colors.gray}
               />
-              <CommentsNumber
-                style={{color: comments > 0 ? colors.twitter : colors.gray}}>
+              <CommentsNumber style={{color: colors.gray}}>
                 {' '}
                 {comments}
               </CommentsNumber>
