@@ -1,12 +1,11 @@
 import React from 'react';
 import {Text} from 'react-native';
 import {useTheme} from '@react-navigation/native';
-import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import IoIcon from 'react-native-vector-icons/Ionicons';
 
 import {
   Container,
   Retweeted,
+  RetweetIcon,
   Body,
   Avatar,
   Content,
@@ -19,15 +18,16 @@ import {
   ImageContent,
   Icons,
   Comments,
+  CommentsIcon,
   CommentsNumber,
   Retweets,
   RetweetsNumber,
   Likes,
+  LikesIcon,
   LikesNumber,
   Actions,
+  ActionsIcon,
 } from './styles';
-
-const iconSize = 25;
 
 export default function Tweet({
   avatar,
@@ -47,7 +47,7 @@ export default function Tweet({
     <Container style={{borderBottomColor: colors.border}}>
       {retweet && (
         <Retweeted>
-          <MCIcon name="twitter-retweet" size={iconSize} color={colors.gray} />
+          <RetweetIcon size={25} color={colors.gray} />
           <Text style={{color: colors.gray}}>Você retweetou</Text>
         </Retweeted>
       )}
@@ -77,19 +77,14 @@ export default function Tweet({
 
           <Icons>
             <Comments>
-              <IoIcon
-                name="chatbubble-outline"
-                size={iconSize}
-                color={colors.gray}
-              />
+              <CommentsIcon color={colors.gray} />
               <CommentsNumber style={{color: colors.gray}}>
                 {' '}
                 {comments}
               </CommentsNumber>
             </Comments>
             <Retweets>
-              <MCIcon
-                name="twitter-retweet"
+              <RetweetIcon
                 size={30}
                 color={retweets > 0 ? colors.retweet : colors.gray}
               />
@@ -100,9 +95,8 @@ export default function Tweet({
               </RetweetsNumber>
             </Retweets>
             <Likes>
-              <IoIcon
+              <LikesIcon
                 name={likes > 0 ? 'heart-sharp' : 'heart-outline'}
-                size={iconSize}
                 color={likes > 0 ? colors.like : colors.gray}
               />
               <LikesNumber
@@ -112,11 +106,7 @@ export default function Tweet({
               </LikesNumber>
             </Likes>
             <Actions>
-              <IoIcon
-                name="share-social-outline"
-                size={iconSize}
-                color={colors.gray}
-              />
+              <ActionsIcon color={colors.gray} />
             </Actions>
           </Icons>
         </Content>

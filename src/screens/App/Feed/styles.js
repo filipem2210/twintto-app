@@ -18,7 +18,8 @@ export const Tweets = styled.View`
 `;
 
 export const Logo = styled.Image.attrs({
-  resizeMode: 'contain',
+  width: 25,
+  height: 25,
 })``;
 
 export const TweetButton = styled(RectButton)`

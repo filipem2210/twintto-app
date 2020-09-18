@@ -17,8 +17,6 @@ import {
   WriteIcon,
 } from './styles';
 
-const logoSize = 25;
-
 export default function Feed({navigation}) {
   const {colors} = useTheme();
 
@@ -26,7 +24,7 @@ export default function Feed({navigation}) {
     <Container>
       <Wrapper>
         <Header navigation={navigation} feed>
-          <Logo source={logo} width={logoSize} height={logoSize} />
+          <Logo source={logo} />
         </Header>
         <Stories />
         <Tweets style={{borderTopColor: colors.border}}>

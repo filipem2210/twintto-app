@@ -18,7 +18,7 @@ import {
 export default function LandingScreen({navigation}) {
   return (
     <Container>
-      <Logo source={logo} resizeMode="contain" />
+      <Logo source={logo} />
       <Wrapper>
         <Title>Veja o que está acontencendo no mundo neste momento.</Title>
         <SignUpButton onPress={() => navigation.navigate('SignUp')}>

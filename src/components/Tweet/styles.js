@@ -1,5 +1,10 @@
 import styled, {css} from 'styled-components/native';
 
+import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import IoIcon from 'react-native-vector-icons/Ionicons';
+
+const iconSize = 25;
+
 export const Container = styled.View`
   padding: 14px 16px;
   border-bottom-width: 1px;
@@ -11,6 +16,10 @@ export const Retweeted = styled.View`
   margin-left: 30px;
 `;
 
+export const RetweetIcon = styled(MCIcon).attrs({
+  name: 'twitter-retweet',
+})``;
+
 export const Body = styled.View`
   margin-top: 3px;
   position: relative;
@@ -21,7 +30,6 @@ export const Avatar = styled.Image`
   height: 49px;
   border-radius: 49px;
   flex-shrink: 0;
-  background-color: gray;
   position: absolute;
   top: 0;
   left: 0;
@@ -94,6 +102,11 @@ export const Comments = styled.View`
   ${bottomIconsCSS}
 `;
 
+export const CommentsIcon = styled(IoIcon).attrs({
+  name: 'chatbubble-outline',
+  size: iconSize,
+})``;
+
 export const CommentsNumber = styled.Text`
   font-size: 14px;
 `;
@@ -110,6 +123,10 @@ export const Likes = styled.View`
   ${bottomIconsCSS}
 `;
 
+export const LikesIcon = styled(IoIcon).attrs({
+  size: iconSize,
+})``;
+
 export const LikesNumber = styled.Text`
   font-size: 14px;
 `;
@@ -117,3 +134,8 @@ export const LikesNumber = styled.Text`
 export const Actions = styled.View`
   ${bottomIconsCSS}
 `;
+
+export const ActionsIcon = styled(IoIcon).attrs({
+  name: 'share-social-outline',
+  size: iconSize,
+})``;

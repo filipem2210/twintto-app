@@ -1,7 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {Formik, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-import Icon from 'react-native-vector-icons/AntDesign';
 
 import logo from '../../../assets/logo.png';
 
@@ -9,13 +8,14 @@ import {
   Container,
   TopMenuWrapper,
   BackButton,
+  BackIcon,
   Logo,
   Title,
   FormWrapper,
   InputWrapper,
   Input,
   PasswordVisibilityButton,
-  PasswordVisibilityButtonIcon,
+  PasswordVisibilityIcon,
   ErrorWrapper,
   SignUpButtonWrapper,
   SignUpButton,
@@ -49,7 +49,7 @@ export default function SignUpScreen({navigation: {goBack}}) {
     <Container>
       <TopMenuWrapper>
         <BackButton onPress={() => goBack()}>
-          <Icon name="arrowleft" size={25} color="#33a1f2" />
+          <BackIcon />
         </BackButton>
         <Logo source={logo} resizeMode="contain" />
       </TopMenuWrapper>
@@ -145,9 +145,7 @@ export default function SignUpScreen({navigation: {goBack}}) {
                 />
                 <PasswordVisibilityButton
                   onPress={() => setPasswordHidden((prevValue) => !prevValue)}>
-                  <PasswordVisibilityButtonIcon
-                    name="eye"
-                    size={20}
+                  <PasswordVisibilityIcon
                     color={passwordHidden ? '#8899a6' : '#33a1f2'}
                     style={!passwordHidden && {opacity: 1}}
                   />

@@ -1,5 +1,8 @@
 import styled from 'styled-components/native';
 import {DrawerItem} from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+const iconSize = 25;
 
 export const Container = styled.View`
   flex: 1;
@@ -57,3 +60,17 @@ export const BottomOptions = styled.View`
   justify-content: space-between;
   padding: 15px;
 `;
+
+export const ThemeSwitchButton = styled.TouchableOpacity``;
+
+export const ThemeSwitchIcon = styled(Icon).attrs({
+  name: 'bulb-outline',
+  size: iconSize,
+})``;
+
+export const QrCodeButton = styled.TouchableOpacity``;
+
+export const QrCodeIcon = styled(Icon).attrs({
+  name: 'qr-code-outline',
+  size: iconSize,
+})``;

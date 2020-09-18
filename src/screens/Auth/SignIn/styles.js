@@ -2,7 +2,8 @@ import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {RectButton} from 'react-native-gesture-handler';
 
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import FAIcon from 'react-native-vector-icons/FontAwesome5';
+import ADIcon from 'react-native-vector-icons/AntDesign';
 
 export const Container = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.OS === 'ios' ? 'padding' : 'height',
@@ -24,6 +25,12 @@ export const BackButton = styled.TouchableHighlight.attrs({
   padding: 5px;
   border-radius: 50px;
 `;
+
+export const BackIcon = styled(ADIcon).attrs({
+  name: 'arrowleft',
+  size: 25,
+  color: '#33a1f2',
+})``;
 
 export const Logo = styled.Image`
   flex: 1;
@@ -64,7 +71,10 @@ export const Input = styled.TextInput`
 
 export const PasswordVisibilityButton = styled.TouchableWithoutFeedback``;
 
-export const PasswordVisibilityButtonIcon = styled(Icon)`
+export const PasswordVisibilityIcon = styled(FAIcon).attrs({
+  name: 'eye',
+  size: 20,
+})`
   position: absolute;
   right: 5px;
   top: 15px;

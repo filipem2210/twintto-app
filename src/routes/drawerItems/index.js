@@ -20,12 +20,15 @@ import {
   DrawerItemsWrapper,
   DrawerNav,
   BottomOptions,
+  ThemeSwitchButton,
+  ThemeSwitchIcon,
+  QrCodeButton,
+  QrCodeIcon,
 } from './styles';
 
 export default function DrawerItems(props) {
   const {colors} = useTheme();
   const {toggleTheme} = useContext(ThemeContext);
-  const iconSize = 25;
 
   return (
     <Container>
@@ -124,15 +127,15 @@ export default function DrawerItems(props) {
         </View>
       </DrawerContentScrollView>
       <BottomOptions style={{borderTopColor: colors.border}}>
-        <Icon
-          color={colors.twitter}
-          size={iconSize}
-          name="bulb-outline"
+        <ThemeSwitchButton
           onPress={() => {
             toggleTheme();
-          }}
-        />
-        <Icon color={colors.twitter} size={iconSize} name="qr-code-outline" />
+          }}>
+          <ThemeSwitchIcon color={colors.twitter} />
+        </ThemeSwitchButton>
+        <QrCodeButton>
+          <QrCodeIcon color={colors.twitter} />
+        </QrCodeButton>
       </BottomOptions>
     </Container>
   );
