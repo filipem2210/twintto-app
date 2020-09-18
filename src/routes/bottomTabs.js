@@ -20,6 +20,7 @@ export default function HomeTabs() {
         activeTintColor: colors.twitter,
         inactiveTintColor: colors.inactiveTintColor,
         showLabel: false,
+        keyboardHidesTabBar: true,
       }}>
       <Tab.Screen
         name="Feed"
