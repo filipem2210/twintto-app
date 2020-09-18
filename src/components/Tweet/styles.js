@@ -63,8 +63,6 @@ export const Description = styled.Text`
 
 export const ImageWrapper = styled.View`
   margin-top: 12px;
-  border-width: 1px;
-  border-radius: 15px;
 `;
 
 export const ImageContent = styled.Image.attrs({
@@ -72,6 +70,7 @@ export const ImageContent = styled.Image.attrs({
 })`
   width: 100%;
   height: 150px;
+  border-radius: 15px;
 `;
 
 export const Icons = styled.View`
