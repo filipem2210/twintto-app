@@ -58,6 +58,7 @@ export default function DrawerItems(props) {
           <DrawerNav
             label="Perfil"
             labelStyle={{color: colors.text}}
+            onPress={() => props.navigation.navigate('Profile')}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
