@@ -65,12 +65,14 @@ export const ImageWrapper = styled.View`
   margin-top: 12px;
 `;
 
-export const ImageContent = styled.Image.attrs({
-  resizeMode: 'contain',
-})`
+export const ImageContent = styled.Image`
   width: 100%;
   height: 150px;
-  border-radius: 15px;
+  border-width: 1px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 `;
 
 export const Icons = styled.View`

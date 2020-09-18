@@ -68,7 +68,10 @@ export default function Tweet({
 
           {image && (
             <ImageWrapper>
-              <ImageContent source={{uri: image}} />
+              <ImageContent
+                source={{uri: image}}
+                style={{borderColor: colors.border}}
+              />
             </ImageWrapper>
           )}
 
