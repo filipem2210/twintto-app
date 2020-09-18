@@ -102,7 +102,7 @@ export default function Tweet({
             </Retweets>
             <Likes>
               <IoIcon
-                name="heart-outline"
+                name={likes > 0 ? 'heart-sharp' : 'heart-outline'}
                 size={iconSize}
                 color={likes > 0 ? colors.like : colors.gray}
               />
