@@ -3,7 +3,7 @@ import {Formik, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import logo from '../../assets/logo.png';
+import logo from '../../../assets/logo.png';
 
 import {
   Container,
