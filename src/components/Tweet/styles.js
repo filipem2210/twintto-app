@@ -37,16 +37,22 @@ export const Header = styled.View`
   flex-direction: row;
 `;
 
-export const Name = styled.Text`
+export const Name = styled.Text.attrs({
+  numberOfLines: 1,
+})`
   font-size: 15px;
   font-weight: bold;
 `;
 
-export const User = styled.Text`
+export const User = styled.Text.attrs({
+  numberOfLines: 1,
+})`
   font-size: 15px;
 `;
 
-export const Date = styled.Text`
+export const Date = styled.Text.attrs({
+  numberOfLines: 1,
+})`
   font-size: 15px;
 `;
 
