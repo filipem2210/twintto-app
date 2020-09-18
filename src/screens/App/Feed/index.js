@@ -1,26 +1,59 @@
 import React from 'react';
+import {useTheme} from '@react-navigation/native';
 
 import Header from '../../../components/Header';
-import Tweets from '../../../components/Tweets';
+import Tweet from '../../../components/Tweet';
 
 import logo from '../../../assets/logo.png';
+import writeIcon from '../../../assets/write.png';
 
-import {Container, Logo} from './styles';
+import {
+  Container,
+  Logo,
+  Wrapper,
+  Tweets,
+  TweetButton,
+  WriteIcon,
+} from './styles';
+
+const logoSize = 25;
 
 export default function Feed({navigation}) {
-  const logoSize = 25;
+  const {colors} = useTheme();
 
   return (
     <Container>
-      <Header navigation={navigation} feed>
-        <Logo
-          source={logo}
-          resizeMode="contain"
-          width={logoSize}
-          height={logoSize}
-        />
-      </Header>
-      <Tweets />
+      <Wrapper>
+        <Header navigation={navigation} feed>
+          <Logo source={logo} width={logoSize} height={logoSize} />
+        </Header>
+        <Tweets style={{borderTopColor: colors.border}}>
+          <Tweet
+            avatar="https://pbs.twimg.com/profile_images/1299146910238945281/VckzvGa9_bigger.jpg"
+            name="Gabs Ferreira"
+            user="@o_gabsferreira"
+            date="20 de mai"
+            description="Entendendo a web em 4 passos simples"
+            image="https://pbs.twimg.com/media/EYfA145WAAE5Qm9?format=jpg&name=small"
+            comments={15}
+            retweets={281}
+            likes={125}
+            retweet
+          />
+          <Tweet
+            avatar="https://pbs.twimg.com/profile_images/1303700849559064585/F89znLqg_bigger.jpg"
+            name="talita souza"
+            user="@souzatali7"
+            date="10 de set"
+            description="queria ta tirando uma soneca com o ar condicionado no talo"
+            likes={1}
+          />
+        </Tweets>
+      </Wrapper>
+
+      <TweetButton style={{backgroundColor: colors.twitter}}>
+        <WriteIcon source={writeIcon} />
+      </TweetButton>
     </Container>
   );
 }
