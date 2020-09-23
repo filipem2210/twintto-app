@@ -6,6 +6,7 @@ export const LightTheme = {
     background: '#ffffff',
     card: '#ffffff',
     text: '#000000',
+    white: '#ffffff',
     border: 'rgb(199, 199, 204)',
     notification: 'rgb(255, 69, 58)',
     inactiveTintColor: '#8899a6',
