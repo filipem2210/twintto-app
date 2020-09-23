@@ -14,10 +14,11 @@ export const Container = styled.View`
 
 export const MenuButton = styled.TouchableOpacity``;
 
-export const MenuIcon = styled(Icon).attrs({
+export const MenuIcon = styled(Icon).attrs((props) => ({
   name: 'menu',
   size: iconSize,
-})``;
+  color: props.theme.colors.twitter,
+}))``;
 
 export const ChildrenWrapper = styled.View`
   flex: 1;
@@ -26,7 +27,8 @@ export const ChildrenWrapper = styled.View`
 
 export const SettingsButton = styled.TouchableOpacity``;
 
-export const SettingsIcon = styled(Icon).attrs({
+export const SettingsIcon = styled(Icon).attrs((props) => ({
   name: 'md-settings-outline',
   size: iconSize,
-})``;
+  color: props.theme.colors.twitter,
+}))``;

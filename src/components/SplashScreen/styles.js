@@ -3,13 +3,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: #33a1f2;
+  background-color: ${(props) => props.theme.colors.twitter};
   align-items: center;
   justify-content: center;
 `;
 
-export const Logo = styled(Icon).attrs({
+export const Logo = styled(Icon).attrs((props) => ({
   name: 'logo-twitter',
-  color: '#fff',
+  color: props.theme.colors.white,
   size: 75,
-})``;
+}))``;

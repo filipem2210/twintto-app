@@ -1,9 +1,11 @@
 import styled from 'styled-components/native';
 import ADIcon from 'react-native-vector-icons/AntDesign';
 import IoIcon from 'react-native-vector-icons/Ionicons';
+import MIIcon from 'react-native-vector-icons/MaterialIcons';
 
 export const Container = styled.ScrollView`
   flex: 1;
+  background-color: ${(props) => props.theme.colors.background};
 `;
 
 export const Header = styled.ImageBackground`
@@ -52,6 +54,7 @@ export const Avatar = styled.Image`
   border-top-right-radius: 75px;
   border-top-left-radius: 75px;
   border-width: 4px;
+  border-color: ${(props) => props.theme.colors.card};
 `;
 
 export const ProfileData = styled.View`
@@ -66,22 +69,25 @@ export const EditProfileButtonWrapper = styled.View`
 export const EditProfileButton = styled.TouchableOpacity`
   padding: 6px 20px;
   border-width: 1px;
-  border-color: gray;
+  border-color: ${(props) => props.theme.colors.gray};
   border-radius: 20px;
   background-color: transparent;
 `;
 
 export const EditProfileText = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const Name = styled.Text`
   font-weight: bold;
   font-size: 20px;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const UserName = styled.Text`
   font-size: 14px;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const IconWrapper = styled.View`
@@ -93,12 +99,22 @@ export const City = styled.Text`
   font-size: 14px;
   margin-top: 20px;
   align-items: center;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
-export const LocationIcon = styled(IoIcon).attrs({
+export const LocationIcon = styled(IoIcon).attrs((props) => ({
   name: 'location-outline',
   size: 15,
-})`
+  color: props.theme.colors.gray,
+}))`
+  width: 20px;
+`;
+
+export const BalloonIcon = styled(MIIcon).attrs((props) => ({
+  name: 'cake',
+  size: 15,
+  color: props.theme.colors.gray,
+}))`
   width: 20px;
 `;
 
@@ -106,25 +122,28 @@ export const Birthday = styled.Text`
   font-size: 14px;
   margin-top: 3px;
   align-items: center;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
-export const BalloonIcon = styled.Image.attrs({
+/* export const BalloonIcon = styled.Image.attrs({
   resizeMode: 'contain',
 })`
   width: 12px;
   height: 12px;
-`;
+`; */
 
 export const SignUpDate = styled.Text`
   font-size: 14px;
   margin-top: 3px;
   align-items: center;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
-export const CalendarIcon = styled(IoIcon).attrs({
+export const CalendarIcon = styled(IoIcon).attrs((props) => ({
   name: 'calendar-outline',
   size: 15,
-})`
+  color: props.theme.colors.gray,
+}))`
   width: 20px;
 `;
 
@@ -135,17 +154,24 @@ export const FollowInfo = styled.View`
 
 export const FollowingNumber = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.text};
 `;
 
-export const FollowingText = styled.Text``;
+export const FollowingText = styled.Text`
+  color: ${(props) => props.theme.colors.gray};
+`;
 
 export const FollowersNumber = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.text};
 `;
 
-export const FollowersText = styled.Text``;
+export const FollowersText = styled.Text`
+  color: ${(props) => props.theme.colors.gray};
+`;
 
 export const Tweets = styled.View`
   flex: 1;
   border-top-width: 1px;
+  border-top-color: ${(props) => props.theme.colors.gray};
 `;

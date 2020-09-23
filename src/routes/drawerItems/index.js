@@ -1,7 +1,5 @@
 import React, {useContext} from 'react';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
-import {useTheme} from '@react-navigation/native';
-import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {ThemeContext} from '../../contexts/ThemeContext';
@@ -18,6 +16,7 @@ import {
   FollowersNumber,
   FollowersText,
   DrawerItemsWrapper,
+  DrawerMoreItemsWrapper,
   DrawerNav,
   BottomOptions,
   ThemeSwitchButton,
@@ -27,7 +26,6 @@ import {
 } from './styles';
 
 export default function DrawerItems(props) {
-  const {colors} = useTheme();
   const {toggleTheme} = useContext(ThemeContext);
 
   return (
@@ -40,27 +38,18 @@ export default function DrawerItems(props) {
                 'https://pbs.twimg.com/profile_images/1260607790323830791/NGrNpCkO_bigger.jpg',
             }}
           />
-          <Name style={{color: colors.text}}>old wolf</Name>
-          <UserName style={{color: colors.text}}>@filipem2210</UserName>
+          <Name>old wolf</Name>
+          <UserName>@filipem2210</UserName>
           <FollowInfo>
-            <FollowingNumber style={{color: colors.text}}>78 </FollowingNumber>
-            <FollowingText style={{color: colors.text}}>
-              Seguindo{' '}
-            </FollowingText>
-            <FollowersNumber style={{color: colors.text}}>22 </FollowersNumber>
-            <FollowersText style={{color: colors.text}}>
-              Seguidores
-            </FollowersText>
+            <FollowingNumber>78 </FollowingNumber>
+            <FollowingText>Seguindo </FollowingText>
+            <FollowersNumber>22 </FollowersNumber>
+            <FollowersText>Seguidores</FollowersText>
           </FollowInfo>
         </UserInfo>
-        <DrawerItemsWrapper
-          style={{
-            borderTopColor: colors.border,
-            borderBottomColor: colors.border,
-          }}>
+        <DrawerItemsWrapper>
           <DrawerNav
             label="Perfil"
-            labelStyle={{color: colors.text}}
             onPress={() => props.navigation.navigate('Profile')}
             icon={({focused, color, size}) => (
               <Icon
@@ -72,7 +61,6 @@ export default function DrawerItems(props) {
           />
           <DrawerNav
             label="Listas"
-            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -83,7 +71,6 @@ export default function DrawerItems(props) {
           />
           <DrawerNav
             label="Tópicos"
-            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -94,7 +81,6 @@ export default function DrawerItems(props) {
           />
           <DrawerNav
             label="Itens Salvos"
-            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -105,7 +91,6 @@ export default function DrawerItems(props) {
           />
           <DrawerNav
             label="Moments"
-            labelStyle={{color: colors.text}}
             icon={({focused, color, size}) => (
               <Icon
                 color={color}
@@ -115,26 +100,20 @@ export default function DrawerItems(props) {
             )}
           />
         </DrawerItemsWrapper>
-        <View>
-          <DrawerNav
-            label="Configurações e privacidade"
-            labelStyle={{color: colors.text}}
-          />
-          <DrawerNav
-            label="Central de Ajuda"
-            labelStyle={{color: colors.text}}
-          />
-        </View>
+        <DrawerMoreItemsWrapper>
+          <DrawerNav label="Configurações e privacidade" />
+          <DrawerNav label="Central de Ajuda" />
+        </DrawerMoreItemsWrapper>
       </DrawerContentScrollView>
-      <BottomOptions style={{borderTopColor: colors.border}}>
+      <BottomOptions>
         <ThemeSwitchButton
           onPress={() => {
             toggleTheme();
           }}>
-          <ThemeSwitchIcon color={colors.twitter} />
+          <ThemeSwitchIcon />
         </ThemeSwitchButton>
         <QrCodeButton>
-          <QrCodeIcon color={colors.twitter} />
+          <QrCodeIcon />
         </QrCodeButton>
       </BottomOptions>
     </Container>

@@ -1,17 +1,17 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {useTheme} from '@react-navigation/native';
 
 import {
   Container,
   Retweeted,
   RetweetIcon,
+  RetweetText,
   Body,
   Avatar,
   Content,
   Header,
   Name,
   User,
+  Dot,
   Date,
   Description,
   ImageWrapper,
@@ -41,14 +41,12 @@ export default function Tweet({
   likes,
   retweet,
 }) {
-  const {colors} = useTheme();
-
   return (
-    <Container style={{borderBottomColor: colors.border}}>
+    <Container>
       {retweet && (
         <Retweeted>
-          <RetweetIcon size={25} color={colors.gray} />
-          <Text style={{color: colors.gray}}>Você retweetou</Text>
+          <RetweetIcon size={25} />
+          <RetweetText>Você retweetou</RetweetText>
         </Retweeted>
       )}
       <Body>
@@ -56,57 +54,35 @@ export default function Tweet({
 
         <Content>
           <Header>
-            <Name style={{color: colors.text}}>{name} </Name>
-            <User style={{color: colors.gray}}>{user}</User>
-            <Text style={{color: colors.gray}}> . </Text>
-            <Date style={{color: colors.gray}}>{date}</Date>
+            <Name>{name} </Name>
+            <User>{user}</User>
+            <Dot> . </Dot>
+            <Date>{date}</Date>
           </Header>
 
-          <Description>
-            <Text style={{color: colors.text}}>{description}</Text>
-          </Description>
+          <Description>{description}</Description>
 
           {image && (
             <ImageWrapper>
-              <ImageContent
-                source={{uri: image}}
-                style={{borderColor: colors.border}}
-              />
+              <ImageContent source={{uri: image}} />
             </ImageWrapper>
           )}
 
           <Icons>
             <Comments>
-              <CommentsIcon color={colors.gray} />
-              <CommentsNumber style={{color: colors.gray}}>
-                {' '}
-                {comments}
-              </CommentsNumber>
+              <CommentsIcon />
+              <CommentsNumber> {comments}</CommentsNumber>
             </Comments>
             <Retweets>
-              <RetweetIcon
-                size={30}
-                color={retweets > 0 ? colors.retweet : colors.gray}
-              />
-              <RetweetsNumber
-                style={{color: retweets > 0 ? colors.retweet : colors.gray}}>
-                {' '}
-                {retweets}
-              </RetweetsNumber>
+              <RetweetIcon size={30} retweets={retweets} />
+              <RetweetsNumber retweets={retweets}> {retweets}</RetweetsNumber>
             </Retweets>
             <Likes>
-              <LikesIcon
-                name={likes > 0 ? 'heart-sharp' : 'heart-outline'}
-                color={likes > 0 ? colors.like : colors.gray}
-              />
-              <LikesNumber
-                style={{color: likes > 0 ? colors.like : colors.gray}}>
-                {' '}
-                {likes}
-              </LikesNumber>
+              <LikesIcon likes={likes} />
+              <LikesNumber likes={likes}> {likes}</LikesNumber>
             </Likes>
             <Actions>
-              <ActionsIcon color={colors.gray} />
+              <ActionsIcon />
             </Actions>
           </Icons>
         </Content>

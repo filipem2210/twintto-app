@@ -1,5 +1,4 @@
 import React from 'react';
-import {useTheme} from '@react-navigation/native';
 
 import Header from '../../../components/Header';
 import Stories from '../../../components/Stories';
@@ -18,8 +17,6 @@ import {
 } from './styles';
 
 export default function Feed({navigation}) {
-  const {colors} = useTheme();
-
   return (
     <Container>
       <Wrapper>
@@ -27,7 +24,7 @@ export default function Feed({navigation}) {
           <Logo source={logo} />
         </Header>
         <Stories />
-        <Tweets style={{borderTopColor: colors.border}}>
+        <Tweets>
           <Tweet
             avatar="https://pbs.twimg.com/profile_images/1299146910238945281/VckzvGa9_bigger.jpg"
             name="Gabs Ferreira"
@@ -91,7 +88,7 @@ export default function Feed({navigation}) {
         </Tweets>
       </Wrapper>
 
-      <TweetButton style={{backgroundColor: colors.twitter}}>
+      <TweetButton>
         <WriteIcon source={writeIcon} />
       </TweetButton>
     </Container>

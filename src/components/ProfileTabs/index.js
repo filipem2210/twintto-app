@@ -1,5 +1,4 @@
 import React from 'react';
-import {useTheme} from '@react-navigation/native';
 
 import {
   Container,
@@ -14,23 +13,19 @@ import {
 } from './styles';
 
 export default function ProfileTabs() {
-  const {colors} = useTheme();
-
   return (
     <Container>
-      <TweetsButton style={{borderBottomColor: colors.twitter}}>
-        <TweetsText style={{color: colors.gray}}>Tweets</TweetsText>
+      <TweetsButton>
+        <TweetsText>Tweets</TweetsText>
       </TweetsButton>
       <TweetsAnswersButton>
-        <TweetsAnswersText style={{color: colors.gray}}>
-          Tweets e respostas
-        </TweetsAnswersText>
+        <TweetsAnswersText>Tweets e respostas</TweetsAnswersText>
       </TweetsAnswersButton>
       <MediaButton>
-        <MediaText style={{color: colors.gray}}>Mídia</MediaText>
+        <MediaText>Mídia</MediaText>
       </MediaButton>
       <LikesButton>
-        <LikesText style={{color: colors.gray}}>Curtidas</LikesText>
+        <LikesText>Curtidas</LikesText>
       </LikesButton>
     </Container>
   );

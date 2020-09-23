@@ -1,10 +1,7 @@
 import React from 'react';
-import {useTheme} from '@react-navigation/native';
 
 import ProfileTabs from '../../../components/ProfileTabs';
 import Tweet from '../../../components/Tweet';
-
-import balloon from '../../../assets/balloon.png';
 
 import {
   Container,
@@ -36,8 +33,6 @@ import {
 } from './styles';
 
 export default function Profile({navigation}) {
-  const {colors} = useTheme();
-
   return (
     <Container>
       <Header
@@ -52,7 +47,6 @@ export default function Profile({navigation}) {
           <MoreOptionsIcon />
         </MoreOptionsButton>
         <Avatar
-          style={{borderColor: colors.card}}
           source={{
             uri:
               'https://pbs.twimg.com/profile_images/1260607790323830791/NGrNpCkO_200x200.jpg',
@@ -62,41 +56,39 @@ export default function Profile({navigation}) {
 
       <ProfileData>
         <EditProfileButtonWrapper>
-          <EditProfileButton style={{borderColor: colors.gray}}>
-            <EditProfileText style={{color: colors.gray}}>
-              Editar perfil
-            </EditProfileText>
+          <EditProfileButton>
+            <EditProfileText>Editar perfil</EditProfileText>
           </EditProfileButton>
         </EditProfileButtonWrapper>
-        <Name style={{color: colors.text}}>old wolf</Name>
-        <UserName style={{color: colors.gray}}>@filipem2210</UserName>
-        <City style={{color: colors.gray}}>
+        <Name>old wolf</Name>
+        <UserName>@filipem2210</UserName>
+        <City>
           <IconWrapper>
-            <LocationIcon color={colors.gray} />
+            <LocationIcon />
           </IconWrapper>
           Florianópolis
         </City>
-        <Birthday style={{color: colors.gray}}>
+        <Birthday>
           <IconWrapper>
-            <BalloonIcon source={balloon} />
+            <BalloonIcon />
           </IconWrapper>
           Nascido em 22 de outubro de 1986
         </Birthday>
-        <SignUpDate style={{color: colors.gray}}>
+        <SignUpDate>
           <IconWrapper>
-            <CalendarIcon color={colors.gray} />
+            <CalendarIcon />
           </IconWrapper>
           Entrou em fevereiro de 2016
         </SignUpDate>
         <FollowInfo>
-          <FollowingNumber style={{color: colors.text}}>78 </FollowingNumber>
-          <FollowingText style={{color: colors.gray}}>Seguindo </FollowingText>
-          <FollowersNumber style={{color: colors.text}}>22 </FollowersNumber>
-          <FollowersText style={{color: colors.gray}}>Seguidores</FollowersText>
+          <FollowingNumber>78 </FollowingNumber>
+          <FollowingText>Seguindo </FollowingText>
+          <FollowersNumber>22 </FollowersNumber>
+          <FollowersText>Seguidores</FollowersText>
         </FollowInfo>
       </ProfileData>
       <ProfileTabs />
-      <Tweets style={{borderTopColor: colors.border}}>
+      <Tweets>
         <Tweet
           avatar="https://pbs.twimg.com/profile_images/1299146910238945281/VckzvGa9_bigger.jpg"
           name="Gabs Ferreira"

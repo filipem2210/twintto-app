@@ -14,10 +14,12 @@ export const TweetsButton = styled.TouchableOpacity`
   justify-content: center;
   padding-bottom: 8px;
   border-bottom-width: 3px;
+  border-bottom-color: ${(props) => props.theme.colors.twitter};
 `;
 
 export const TweetsText = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const TweetsAnswersButton = styled.TouchableOpacity`
@@ -31,6 +33,7 @@ export const TweetsAnswersButton = styled.TouchableOpacity`
 
 export const TweetsAnswersText = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const MediaButton = styled.TouchableOpacity`
@@ -44,6 +47,7 @@ export const MediaButton = styled.TouchableOpacity`
 
 export const MediaText = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const LikesButton = styled.TouchableOpacity`
@@ -57,4 +61,5 @@ export const LikesButton = styled.TouchableOpacity`
 
 export const LikesText = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.gray};
 `;

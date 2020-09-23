@@ -1,5 +1,4 @@
 import React from 'react';
-import {useTheme} from '@react-navigation/native';
 
 import {
   Container,
@@ -11,21 +10,19 @@ import {
 } from './styles';
 
 export default function Stories() {
-  const {colors} = useTheme();
-
   return (
-    <Container style={{borderTopColor: colors.border}}>
+    <Container>
       <Storie>
-        <AvatarWrapper style={{borderColor: colors.gray}}>
+        <AvatarWrapper>
           <Avatar
             source={{
               uri:
                 'https://pbs.twimg.com/profile_images/1260607790323830791/NGrNpCkO_bigger.jpg',
             }}
           />
-          <PlusIcon name="pluscircle" size={15} color={colors.twitter} />
+          <PlusIcon />
         </AvatarWrapper>
-        <Name style={{color: colors.gray}}>filipem2210</Name>
+        <Name>filipem2210</Name>
       </Storie>
     </Container>
   );

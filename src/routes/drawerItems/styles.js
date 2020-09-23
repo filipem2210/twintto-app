@@ -7,6 +7,7 @@ const iconSize = 25;
 export const Container = styled.View`
   flex: 1;
   justify-content: space-between;
+  background-color: ${(props) => props.theme.colors.background};
 `;
 
 export const UserInfo = styled.View`
@@ -26,9 +27,12 @@ export const Avatar = styled.Image.attrs({
 
 export const Name = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.text};
 `;
 
-export const UserName = styled.Text``;
+export const UserName = styled.Text`
+  color: ${(props) => props.theme.colors.text};
+`;
 
 export const FollowInfo = styled.View`
   flex-direction: row;
@@ -37,40 +41,58 @@ export const FollowInfo = styled.View`
 
 export const FollowingNumber = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.text};
 `;
 
-export const FollowingText = styled.Text``;
+export const FollowingText = styled.Text`
+  color: ${(props) => props.theme.colors.text};
+`;
 
 export const FollowersNumber = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.theme.colors.text};
 `;
 
-export const FollowersText = styled.Text``;
+export const FollowersText = styled.Text`
+  color: ${(props) => props.theme.colors.text};
+`;
 
 export const DrawerItemsWrapper = styled.View`
   border-top-width: 1px;
   border-bottom-width: 1px;
+  border-color: ${(props) => props.theme.colors.border};
 `;
 
-export const DrawerNav = styled(DrawerItem)``;
+export const DrawerMoreItemsWrapper = styled.View``;
+
+export const DrawerNav = styled(DrawerItem).attrs((props) => ({
+  labelStyle: {
+    color: props.theme.colors.text,
+  },
+  activeTintColor: props.theme.colors.gray,
+  inactiveTintColor: props.theme.colors.gray,
+}))``;
 
 export const BottomOptions = styled.View`
-  border-top-width: 1px;
   flex-direction: row;
   justify-content: space-between;
   padding: 15px;
+  border-top-width: 1px;
+  border-top-color: ${(props) => props.theme.colors.border};
 `;
 
 export const ThemeSwitchButton = styled.TouchableOpacity``;
 
-export const ThemeSwitchIcon = styled(Icon).attrs({
+export const ThemeSwitchIcon = styled(Icon).attrs((props) => ({
   name: 'bulb-outline',
   size: iconSize,
-})``;
+  color: props.theme.colors.twitter,
+}))``;
 
 export const QrCodeButton = styled.TouchableOpacity``;
 
-export const QrCodeIcon = styled(Icon).attrs({
+export const QrCodeIcon = styled(Icon).attrs((props) => ({
   name: 'qr-code-outline',
   size: iconSize,
-})``;
+  color: props.theme.colors.twitter,
+}))``;

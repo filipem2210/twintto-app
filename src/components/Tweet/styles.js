@@ -8,6 +8,7 @@ const iconSize = 25;
 export const Container = styled.View`
   padding: 14px 16px;
   border-bottom-width: 1px;
+  border-bottom-color: ${(props) => props.theme.colors.border};
 `;
 
 export const Retweeted = styled.View`
@@ -16,9 +17,15 @@ export const Retweeted = styled.View`
   margin-left: 30px;
 `;
 
-export const RetweetIcon = styled(MCIcon).attrs({
+export const RetweetIcon = styled(MCIcon).attrs((props) => ({
   name: 'twitter-retweet',
-})``;
+  color:
+    props.retweets > 0 ? props.theme.colors.retweet : props.theme.colors.gray,
+}))``;
+
+export const RetweetText = styled.Text`
+  color: ${(props) => props.theme.colors.gray};
+`;
 
 export const Body = styled.View`
   margin-top: 3px;
@@ -50,23 +57,31 @@ export const Name = styled.Text.attrs({
 })`
   font-size: 15px;
   font-weight: bold;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const User = styled.Text.attrs({
   numberOfLines: 1,
 })`
   font-size: 15px;
+  color: ${(props) => props.theme.colors.gray};
+`;
+
+export const Dot = styled.Text`
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const Date = styled.Text.attrs({
   numberOfLines: 1,
 })`
   font-size: 15px;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const Description = styled.Text`
   font-size: 15px;
   margin-top: 4px;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 export const ImageWrapper = styled.View`
@@ -81,6 +96,7 @@ export const ImageContent = styled.Image`
   border-bottom-left-radius: 20px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+  border-color: ${(props) => props.theme.colors.border};
 `;
 
 export const Icons = styled.View`
@@ -102,13 +118,15 @@ export const Comments = styled.View`
   ${bottomIconsCSS}
 `;
 
-export const CommentsIcon = styled(IoIcon).attrs({
+export const CommentsIcon = styled(IoIcon).attrs((props) => ({
   name: 'chatbubble-outline',
   size: iconSize,
-})``;
+  color: props.theme.colors.gray,
+}))``;
 
 export const CommentsNumber = styled.Text`
   font-size: 14px;
+  color: ${(props) => props.theme.colors.gray};
 `;
 
 export const Retweets = styled.View`
@@ -117,25 +135,32 @@ export const Retweets = styled.View`
 
 export const RetweetsNumber = styled.Text`
   font-size: 14px;
+  color: ${(props) =>
+    props.retweets > 0 ? props.theme.colors.retweet : props.theme.colors.gray};
 `;
 
 export const Likes = styled.View`
   ${bottomIconsCSS}
 `;
 
-export const LikesIcon = styled(IoIcon).attrs({
+export const LikesIcon = styled(IoIcon).attrs((props) => ({
+  name: props.likes > 0 ? 'heart-sharp' : 'heart-outline',
   size: iconSize,
-})``;
+  color: props.likes > 0 ? props.theme.colors.like : props.theme.colors.gray,
+}))``;
 
 export const LikesNumber = styled.Text`
   font-size: 14px;
+  color: ${(props) =>
+    props.likes > 0 ? props.theme.colors.like : props.theme.colors.gray};
 `;
 
 export const Actions = styled.View`
   ${bottomIconsCSS}
 `;
 
-export const ActionsIcon = styled(IoIcon).attrs({
+export const ActionsIcon = styled(IoIcon).attrs((props) => ({
   name: 'share-social-outline',
   size: iconSize,
-})``;
+  color: props.theme.colors.gray,
+}))``;

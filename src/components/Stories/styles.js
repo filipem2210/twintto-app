@@ -5,6 +5,7 @@ export const Container = styled.View`
   border-top-width: 1px;
   padding: 5px 10px;
   flex-direction: row;
+  border-top-color: ${(props) => props.theme.colors.border};
 `;
 
 export const Storie = styled.View`
@@ -21,6 +22,7 @@ export const AvatarWrapper = styled.View`
   border-top-right-radius: 60px;
   border-top-left-radius: 60px;
   border-width: 3px;
+  border-color: ${(props) => props.theme.colors.gray};
 `;
 
 export const Avatar = styled.Image.attrs({
@@ -34,7 +36,11 @@ export const Avatar = styled.Image.attrs({
   border-top-left-radius: 50px;
 `;
 
-export const PlusIcon = styled(Icon)`
+export const PlusIcon = styled(Icon).attrs((props) => ({
+  name: 'pluscircle',
+  size: 15,
+  color: props.theme.colors.twitter,
+}))`
   position: absolute;
   bottom: -2px;
   right: 0;
@@ -44,7 +50,7 @@ export const PlusIcon = styled(Icon)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-color: #fff;
+  border-color: ${(props) => props.theme.colors.white};
   border-width: 2px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -57,4 +63,5 @@ export const Name = styled.Text.attrs({
 })`
   width: 60px;
   font-size: 12px;
+  color: ${(props) => props.theme.colors.gray};
 `;

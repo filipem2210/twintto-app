@@ -1,20 +1,16 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {useTheme} from '@react-navigation/native';
 
 import Header from '../../../components/Header';
 
-import {Container, Title} from './styles';
+import {Container, ScreenTitle, Title} from './styles';
 
 export default function NotificationsScreen({navigation}) {
-  const {colors} = useTheme();
-
   return (
     <Container>
       <Header navigation={navigation}>
-        <Title style={{color: colors.text}}>Notificações</Title>
+        <ScreenTitle>Notificações</ScreenTitle>
       </Header>
-      <Text>Notifications Screen</Text>
+      <Title>Notifications Screen</Title>
     </Container>
   );
 }

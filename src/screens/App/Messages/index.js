@@ -1,20 +1,16 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {useTheme} from '@react-navigation/native';
 
 import Header from '../../../components/Header';
 
-import {Container, Title} from './styles';
+import {Container, ScreenTitle, Title} from './styles';
 
 export default function MessagesScreen({navigation, theme}) {
-  const {colors} = useTheme();
-
   return (
     <Container>
       <Header navigation={navigation}>
-        <Title style={{color: colors.text}}>Mensagens</Title>
+        <ScreenTitle>Mensagens</ScreenTitle>
       </Header>
-      <Text>Messages Screen</Text>
+      <Title>Messages Screen</Title>
     </Container>
   );
 }
