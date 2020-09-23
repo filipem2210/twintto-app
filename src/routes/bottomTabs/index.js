@@ -1,27 +1,19 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useTheme} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import FeedScreen from '../screens/App/Feed';
-import SearchScreen from '../screens/App/Search';
-import NotificationsScreen from '../screens/App/Notifications';
-import MessagesScreen from '../screens/App/Messages';
+import FeedScreen from '../../screens/App/Feed';
+import SearchScreen from '../../screens/App/Search';
+import NotificationsScreen from '../../screens/App/Notifications';
+import MessagesScreen from '../../screens/App/Messages';
 
 const Tab = createBottomTabNavigator();
 
-export default function HomeTabs() {
-  const {colors} = useTheme();
+import {TabNavigator} from './styles';
 
+export default function HomeTabs() {
   return (
-    <Tab.Navigator
-      initialRouteName="Feed"
-      tabBarOptions={{
-        activeTintColor: colors.twitter,
-        inactiveTintColor: colors.inactiveTintColor,
-        showLabel: false,
-        keyboardHidesTabBar: true,
-      }}>
+    <TabNavigator initialRouteName="Feed">
       <Tab.Screen
         name="Feed"
         component={FeedScreen}
@@ -76,6 +68,6 @@ export default function HomeTabs() {
           ),
         }}
       />
-    </Tab.Navigator>
+    </TabNavigator>
   );
 }
