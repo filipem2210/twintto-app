@@ -1,5 +1,6 @@
 export const LightTheme = {
   dark: false,
+  title: 'light',
   colors: {
     twitter: '#33a1f2',
     primary: 'rgb(255, 45, 85)',

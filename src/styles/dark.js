@@ -1,5 +1,6 @@
 export const DarkTheme = {
   dark: true,
+  title: 'dark',
   colors: {
     twitter: '#33a1f2',
     primary: 'rgb(255, 45, 85)',
