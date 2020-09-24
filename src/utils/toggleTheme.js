@@ -2,8 +2,8 @@ import React, {useState, useMemo} from 'react';
 import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 
-import {DarkTheme} from '../styles/dark';
-import {LightTheme} from '../styles/light';
+import DarkTheme from '../styles/dark';
+import LightTheme from '../styles/light';
 
 import {ThemeContext} from '../contexts/ThemeContext';
 
