@@ -17,6 +17,7 @@ export const Container = styled.KeyboardAvoidingView.attrs({
 export const TopMenuWrapper = styled.View`
   flex-direction: row;
   padding: 0 10px;
+  align-items: center;
 `;
 
 export const BackButton = styled.TouchableHighlight.attrs({
@@ -99,13 +100,15 @@ export const SignInButtonWrapper = styled.View`
   align-items: flex-end;
   padding: 10px;
   border-top-width: 1px;
-  border-top-color: #bdc3c7;
+  border-top-color: #dcdcdc;
 `;
 
 export const SignInButton = styled(RectButton)`
   background-color: #33a1f2;
   border-radius: 50px;
   padding: 6px 16px;
+  align-items: center;
+  width: 90px;
 `;
 
 export const SignInButtonText = styled.Text`

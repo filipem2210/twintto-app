@@ -1,6 +1,9 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
+import {ActivityIndicator} from 'react-native';
 import {Formik, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
+
+import {AuthContext} from '../../../contexts/AuthContext';
 
 import logo from '../../../assets/logo.png';
 
@@ -36,6 +39,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function SignInScreen({navigation}) {
+  const {signIn} = useContext(AuthContext);
   const [emailInputFocused, setEmailInputFocused] = useState(false);
   const [passwordInputFocused, setPasswordInputFocused] = useState(false);
   const [passwordHidden, setPasswordHidden] = useState(true);
@@ -43,7 +47,7 @@ export default function SignInScreen({navigation}) {
   const passwordRef = useRef();
 
   function handleSignIn(data) {
-    console.log(data);
+    signIn(data);
   }
 
   return (
@@ -57,21 +61,22 @@ export default function SignInScreen({navigation}) {
           <SignUpButtonText>Inscreva-se</SignUpButtonText>
         </SignUpButton>
       </TopMenuWrapper>
-      <Title>Entrar no Twitter</Title>
-      <FormWrapper>
-        <Formik
-          initialValues={{email: '', password: ''}}
-          validationSchema={validationSchema}
-          onSubmit={(values) => handleSignIn(values)}>
-          {({
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            errors,
-            isSubmitting,
-            values,
-          }) => (
-            <>
+      <Title>Entrar no Twitter.</Title>
+
+      <Formik
+        initialValues={{email: '', password: ''}}
+        validationSchema={validationSchema}
+        onSubmit={(values) => handleSignIn(values)}>
+        {({
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          errors,
+          isSubmitting,
+          values,
+        }) => (
+          <>
+            <FormWrapper>
               <Input
                 placeholder="E-mail"
                 value={values.email}
@@ -141,16 +146,20 @@ export default function SignInScreen({navigation}) {
                   Esqueceu sua senha?
                 </ForgotPasswordButtonText>
               </ForgotPasswordButton>
-            </>
-          )}
-        </Formik>
-      </FormWrapper>
+            </FormWrapper>
 
-      <SignInButtonWrapper>
-        <SignInButton>
-          <SignInButtonText>Entrar</SignInButtonText>
-        </SignInButton>
-      </SignInButtonWrapper>
+            <SignInButtonWrapper>
+              <SignInButton onPress={handleSubmit}>
+                {isSubmitting ? (
+                  <ActivityIndicator size="small" color="#fff" />
+                ) : (
+                  <SignInButtonText>Entrar</SignInButtonText>
+                )}
+              </SignInButton>
+            </SignInButtonWrapper>
+          </>
+        )}
+      </Formik>
     </Container>
   );
 }
