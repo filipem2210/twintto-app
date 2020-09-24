@@ -20,10 +20,13 @@ import {
   City,
   IconWrapper,
   LocationIcon,
+  CityText,
   Birthday,
   BalloonIcon,
+  BirthdayText,
   SignUpDate,
   CalendarIcon,
+  SignUpDateText,
   FollowInfo,
   FollowingNumber,
   FollowingText,
@@ -66,19 +69,19 @@ export default function Profile({navigation}) {
           <IconWrapper>
             <LocationIcon />
           </IconWrapper>
-          Florianópolis
+          <CityText>Florianópolis</CityText>
         </City>
         <Birthday>
           <IconWrapper>
             <BalloonIcon />
           </IconWrapper>
-          Nascido em 22 de outubro de 1986
+          <BirthdayText>Nascido em 22 de outubro de 1986</BirthdayText>
         </Birthday>
         <SignUpDate>
           <IconWrapper>
             <CalendarIcon />
           </IconWrapper>
-          Entrou em fevereiro de 2016
+          <SignUpDateText>Entrou em fevereiro de 2016</SignUpDateText>
         </SignUpDate>
         <FollowInfo>
           <FollowingNumber>78 </FollowingNumber>

@@ -95,11 +95,10 @@ export const IconWrapper = styled.View`
   margin-right: 5px;
 `;
 
-export const City = styled.Text`
-  font-size: 14px;
-  margin-top: 20px;
+export const City = styled.View`
+  flex-direction: row;
   align-items: center;
-  color: ${(props) => props.theme.colors.gray};
+  margin-top: 20px;
 `;
 
 export const LocationIcon = styled(IoIcon).attrs((props) => ({
@@ -110,6 +109,17 @@ export const LocationIcon = styled(IoIcon).attrs((props) => ({
   width: 20px;
 `;
 
+export const CityText = styled.Text`
+  font-size: 14px;
+  color: ${(props) => props.theme.colors.gray};
+`;
+
+export const Birthday = styled.View`
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+`;
+
 export const BalloonIcon = styled(MIIcon).attrs((props) => ({
   name: 'cake',
   size: 15,
@@ -118,25 +128,15 @@ export const BalloonIcon = styled(MIIcon).attrs((props) => ({
   width: 20px;
 `;
 
-export const Birthday = styled.Text`
+export const BirthdayText = styled.Text`
   font-size: 14px;
-  margin-top: 3px;
-  align-items: center;
   color: ${(props) => props.theme.colors.gray};
 `;
 
-/* export const BalloonIcon = styled.Image.attrs({
-  resizeMode: 'contain',
-})`
-  width: 12px;
-  height: 12px;
-`; */
-
-export const SignUpDate = styled.Text`
-  font-size: 14px;
-  margin-top: 3px;
+export const SignUpDate = styled.View`
+  flex-direction: row;
   align-items: center;
-  color: ${(props) => props.theme.colors.gray};
+  margin-top: 10px;
 `;
 
 export const CalendarIcon = styled(IoIcon).attrs((props) => ({
@@ -147,9 +147,14 @@ export const CalendarIcon = styled(IoIcon).attrs((props) => ({
   width: 20px;
 `;
 
+export const SignUpDateText = styled.Text`
+  font-size: 14px;
+  color: ${(props) => props.theme.colors.gray};
+`;
+
 export const FollowInfo = styled.View`
   flex-direction: row;
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 export const FollowingNumber = styled.Text`
