@@ -11,12 +11,13 @@ export const Container = styled.KeyboardAvoidingView.attrs({
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 15px 30px;
   background-color: #fff;
+  padding: 15px 0;
 `;
 
 export const TopMenuWrapper = styled.View`
   flex-direction: row;
+  align-items: center;
 `;
 
 export const BackButton = styled.TouchableHighlight.attrs({
@@ -41,12 +42,14 @@ export const Title = styled.Text`
   font-weight: bold;
   width: 100%;
   margin-top: 30px;
+  padding: 0 30px;
 `;
 
 export const FormWrapper = styled.View`
   flex: 1;
   width: 100%;
   justify-content: center;
+  padding: 0 30px;
 `;
 
 export const InputWrapper = styled.View`
@@ -76,12 +79,15 @@ export const ErrorWrapper = styled.Text`
 export const SignUpButtonWrapper = styled.View`
   width: 100%;
   align-items: flex-end;
+  padding: 0 15px;
 `;
 
 export const SignUpButton = styled(RectButton)`
   background-color: #33a1f2;
   border-radius: 50px;
   padding: 6px 16px;
+  align-items: center;
+  width: 115px;
 `;
 
 export const SignUpButtonText = styled.Text`

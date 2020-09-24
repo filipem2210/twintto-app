@@ -1,6 +1,9 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
+import {ActivityIndicator} from 'react-native';
 import {Formik, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
+
+import {AuthContext} from '../../../contexts/AuthContext';
 
 import logo from '../../../assets/logo.png';
 
@@ -33,6 +36,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function SignUpScreen({navigation: {goBack}}) {
+  const {signUp} = useContext(AuthContext);
   const [nameInputFocused, setNameInputFocused] = useState(false);
   const [emailInputFocused, setEmailInputFocused] = useState(false);
   const [passwordInputFocused, setPasswordInputFocused] = useState(false);
@@ -42,7 +46,7 @@ export default function SignUpScreen({navigation: {goBack}}) {
   const passwordRef = useRef();
 
   function handleSignUp(data) {
-    console.log(data);
+    signUp(data);
   }
 
   return (
@@ -54,20 +58,20 @@ export default function SignUpScreen({navigation: {goBack}}) {
         <Logo source={logo} resizeMode="contain" />
       </TopMenuWrapper>
       <Title>Criar sua conta</Title>
-      <FormWrapper>
-        <Formik
-          initialValues={{name: '', email: '', password: ''}}
-          validationSchema={validationSchema}
-          onSubmit={(values) => handleSignUp(values)}>
-          {({
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            errors,
-            isSubmitting,
-            values,
-          }) => (
-            <>
+      <Formik
+        initialValues={{name: '', email: '', password: ''}}
+        validationSchema={validationSchema}
+        onSubmit={(values) => handleSignUp(values)}>
+        {({
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          errors,
+          isSubmitting,
+          values,
+        }) => (
+          <>
+            <FormWrapper>
               <Input
                 placeholder="Nome"
                 value={values.name}
@@ -154,16 +158,20 @@ export default function SignUpScreen({navigation: {goBack}}) {
               <ErrorWrapper>
                 <ErrorMessage name="password" />
               </ErrorWrapper>
-            </>
-          )}
-        </Formik>
-      </FormWrapper>
+            </FormWrapper>
 
-      <SignUpButtonWrapper>
-        <SignUpButton>
-          <SignUpButtonText>Inscrever-se</SignUpButtonText>
-        </SignUpButton>
-      </SignUpButtonWrapper>
+            <SignUpButtonWrapper>
+              <SignUpButton onPress={handleSubmit}>
+                {isSubmitting ? (
+                  <ActivityIndicator size="small" color="#fff" />
+                ) : (
+                  <SignUpButtonText>Inscrever-se</SignUpButtonText>
+                )}
+              </SignUpButton>
+            </SignUpButtonWrapper>
+          </>
+        )}
+      </Formik>
     </Container>
   );
 }
