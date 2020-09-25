@@ -43,10 +43,13 @@ export const MoreOptionsIcon = styled(IoIcon).attrs({
   color: '#fff',
 })``;
 
-export const Avatar = styled.Image`
+export const AvatarWrapper = styled.View`
   position: absolute;
   bottom: -40px;
   left: 15px;
+`;
+
+export const Avatar = styled.Image`
   width: 75px;
   height: 75px;
   border-bottom-left-radius: 75px;
@@ -154,7 +157,6 @@ export const SignUpDateText = styled.Text`
 
 export const FollowInfo = styled.View`
   flex-direction: row;
-  margin-top: 20px;
 `;
 
 export const FollowingNumber = styled.Text`

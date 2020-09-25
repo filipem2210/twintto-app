@@ -14,6 +14,8 @@ export const UserInfo = styled.View`
   padding: 15px;
 `;
 
+export const AvatarWrapper = styled.View``;
+
 export const Avatar = styled.Image.attrs({
   resizeMode: 'contain',
 })`
@@ -36,7 +38,6 @@ export const UserName = styled.Text`
 
 export const FollowInfo = styled.View`
   flex-direction: row;
-  margin-top: 10px;
 `;
 
 export const FollowingNumber = styled.Text`

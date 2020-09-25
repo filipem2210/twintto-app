@@ -1,4 +1,9 @@
-import React from 'react';
+import React, {createRef, useState, useEffect} from 'react';
+import {Animated} from 'react-native';
+import {createShimmerPlaceholder} from 'react-native-shimmer-placeholder';
+import LinearGradient from 'react-native-linear-gradient';
+
+const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
 
 import ProfileTabs from '../../../components/ProfileTabs';
 import Tweet from '../../../components/Tweet';
@@ -10,6 +15,7 @@ import {
   BackIcon,
   MoreOptionsButton,
   MoreOptionsIcon,
+  AvatarWrapper,
   Avatar,
   ProfileData,
   EditProfileButtonWrapper,
@@ -36,6 +42,45 @@ import {
 } from './styles';
 
 export default function Profile({navigation}) {
+  const avatarRef = createRef();
+  const nameRef = createRef();
+  const userRef = createRef();
+  const cityRef = createRef();
+  const birthDayRef = createRef();
+  const signUpDateRef = createRef();
+  const followInfoRef = createRef();
+  const [avatarVisible, setAvatarVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setVisible(true);
+    }, 1500);
+  }, []);
+
+  useEffect(() => {
+    const shimmerAnimated = Animated.stagger(400, [
+      avatarRef.current.getAnimated(),
+      Animated.parallel([
+        nameRef.current.getAnimated(),
+        userRef.current.getAnimated(),
+        cityRef.current.getAnimated(),
+        birthDayRef.current.getAnimated(),
+        signUpDateRef.current.getAnimated(),
+        followInfoRef.current.getAnimated(),
+      ]),
+    ]);
+    Animated.loop(shimmerAnimated).start();
+  }, [
+    avatarRef,
+    nameRef,
+    userRef,
+    cityRef,
+    birthDayRef,
+    signUpDateRef,
+    followInfoRef,
+  ]);
+
   return (
     <Container>
       <Header
@@ -49,12 +94,22 @@ export default function Profile({navigation}) {
         <MoreOptionsButton>
           <MoreOptionsIcon />
         </MoreOptionsButton>
-        <Avatar
-          source={{
-            uri:
-              'https://pbs.twimg.com/profile_images/1260607790323830791/NGrNpCkO_200x200.jpg',
-          }}
-        />
+        <AvatarWrapper>
+          <ShimmerPlaceholder
+            ref={avatarRef}
+            width={75}
+            height={75}
+            shimmerStyle={{borderRadius: 75}}
+            visible={avatarVisible}>
+            <Avatar
+              source={{
+                uri:
+                  'https://pbs.twimg.com/profile_images/1260607790323830791/NGrNpCkO_200x200.jpg',
+              }}
+              onLoadEnd={() => setAvatarVisible(true)}
+            />
+          </ShimmerPlaceholder>
+        </AvatarWrapper>
       </Header>
 
       <ProfileData>
@@ -63,32 +118,48 @@ export default function Profile({navigation}) {
             <EditProfileText>Editar perfil</EditProfileText>
           </EditProfileButton>
         </EditProfileButtonWrapper>
-        <Name>old wolf</Name>
-        <UserName>@filipem2210</UserName>
+        <ShimmerPlaceholder ref={nameRef} visible={visible} stopAutoRun>
+          <Name>old wolf</Name>
+        </ShimmerPlaceholder>
+        <ShimmerPlaceholder ref={userRef} visible={visible} stopAutoRun>
+          <UserName>@filipem2210</UserName>
+        </ShimmerPlaceholder>
         <City>
           <IconWrapper>
             <LocationIcon />
           </IconWrapper>
-          <CityText>Florianópolis</CityText>
+          <ShimmerPlaceholder ref={cityRef} visible={visible} stopAutoRun>
+            <CityText>Florianópolis</CityText>
+          </ShimmerPlaceholder>
         </City>
         <Birthday>
           <IconWrapper>
             <BalloonIcon />
           </IconWrapper>
-          <BirthdayText>Nascido em 22 de outubro de 1986</BirthdayText>
+          <ShimmerPlaceholder ref={birthDayRef} visible={visible} stopAutoRun>
+            <BirthdayText>Nascido em 22 de outubro de 1986</BirthdayText>
+          </ShimmerPlaceholder>
         </Birthday>
         <SignUpDate>
           <IconWrapper>
             <CalendarIcon />
           </IconWrapper>
-          <SignUpDateText>Entrou em fevereiro de 2016</SignUpDateText>
+          <ShimmerPlaceholder ref={signUpDateRef} visible={visible} stopAutoRun>
+            <SignUpDateText>Entrou em fevereiro de 2016</SignUpDateText>
+          </ShimmerPlaceholder>
         </SignUpDate>
-        <FollowInfo>
-          <FollowingNumber>78 </FollowingNumber>
-          <FollowingText>Seguindo </FollowingText>
-          <FollowersNumber>22 </FollowersNumber>
-          <FollowersText>Seguidores</FollowersText>
-        </FollowInfo>
+        <ShimmerPlaceholder
+          ref={followInfoRef}
+          visible={visible}
+          style={{marginTop: 20}}
+          stopAutoRun>
+          <FollowInfo>
+            <FollowingNumber>78 </FollowingNumber>
+            <FollowingText>Seguindo </FollowingText>
+            <FollowersNumber>22 </FollowersNumber>
+            <FollowersText>Seguidores</FollowersText>
+          </FollowInfo>
+        </ShimmerPlaceholder>
       </ProfileData>
       <ProfileTabs />
       <Tweets>

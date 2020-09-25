@@ -15,6 +15,7 @@ export const Storie = styled.View`
 export const AvatarWrapper = styled.View`
   position: relative;
   width: 60px;
+  height: 60px;
   align-items: center;
   justify-content: center;
   border-bottom-left-radius: 60px;

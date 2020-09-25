@@ -32,14 +32,17 @@ export const Body = styled.View`
   position: relative;
 `;
 
+export const AvatarWrapper = styled.View`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
 export const Avatar = styled.Image`
   width: 49px;
   height: 49px;
   border-radius: 49px;
   flex-shrink: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
 `;
 
 export const Content = styled.View`
@@ -78,9 +81,11 @@ export const Date = styled.Text.attrs({
   color: ${(props) => props.theme.colors.gray};
 `;
 
+export const DescriptionWrapper = styled.View`
+  margin-top: 4px;
+`;
 export const Description = styled.Text`
   font-size: 15px;
-  margin-top: 4px;
   color: ${(props) => props.theme.colors.text};
 `;
 
