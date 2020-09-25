@@ -1,30 +1,28 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState} from 'react';
 import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 
-import DarkTheme from '../styles/dark';
-import LightTheme from '../styles/light';
+// import usePersistedState from './usePersistedState';
+
+import light from '../styles/light';
+import dark from '../styles/dark';
 
 import {ThemeContext} from '../contexts/ThemeContext';
 
 export default function ToggleTheme({children}) {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  // const [theme, setTheme] = usePersistedState('@twintto:theme', light);
+  const [theme, setTheme] = useState(light);
 
-  const theme = isDarkTheme ? DarkTheme : LightTheme;
-
-  const themeContext = useMemo(
-    () => ({
-      toggleTheme: () => {
-        setIsDarkTheme((prevValue) => !prevValue);
-      },
-    }),
-    [],
-  );
+  const toggleTheme = () => {
+    setTheme(theme.title === 'light' ? dark : light);
+  };
 
   return (
-    <ThemeContext.Provider value={themeContext}>
+    <ThemeContext.Provider value={{toggleTheme}}>
       <ThemeProvider theme={theme}>
-        <StatusBar barStyle={isDarkTheme ? 'dark-content' : 'light-content'} />
+        <StatusBar
+          barStyle={theme.title === 'light' ? 'light-content' : 'dark-content'}
+        />
         {children}
       </ThemeProvider>
     </ThemeContext.Provider>
